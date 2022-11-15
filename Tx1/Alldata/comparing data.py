@@ -9,7 +9,7 @@ Created on Tue Oct 25 16:24:33 2022
 from scipy.interpolate import LinearNDInterpolator
 import matplotlib.pyplot as plt
 import numpy as np
-from saem import CSEMData
+from saem import CSEMData , CSEMSurvey
 
 # %%
 # %% Reading Data
@@ -34,4 +34,4 @@ for c in range(3):
         #     F.imag / data32.DATA[c, f, :].imag - 1) * 1j
         
 # %%
-dataCmp.showPatchData(10, what=DIF, amphi=True, alim=[0.5, 2], plim=[-20, 20])
+dataCmp.showPatchData(4, what=DIF, amphi=True, alim=[0.5, 2], plim=[-20, 20])

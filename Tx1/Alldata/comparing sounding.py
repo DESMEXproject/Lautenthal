@@ -44,8 +44,8 @@ data32.filter(fmin=12, fmax=2000)
 # data64.setOrigin([580000., 5740000.])
 # data64.filter(fmin=12, fmax=2000)
 
-x=6000
-y=13000
+x=8000
+y=12000
 
 data2.setPos(position=[x,y], show=True)
 data4.setPos(position=[x,y], show=True)
@@ -58,36 +58,38 @@ print(data32.ry[data32.nrx],data4.ry[data4.nrx],data8.ry[data8.nrx])
 
 # %% Bx
 
-
-ax = data2.showSounding(position=[x,y], cmp=[1, 0, 0], color="g", label="Bx (N=2)")
-data4.showSounding(position=[x,y], cmp=[1, 0, 0], color="orange", label="Bx (N=4)", ax=ax)
-data8.showSounding(position=[x,y], cmp=[1, 0, 0], color="k", label="Bx (N=8)", ax=ax)
-# data16.showSounding(position=[x,y], cmp=[1, 0, 0], color="lightblue", label="Bx (N=16)", ax=ax)
-data32.showSounding(position=[x,y], cmp=[1, 0, 0], color="blue", label="Bx (N=32)", ax=ax)
-# data64.showSounding(position=[x,y], cmp=[1, 0, 0], color="m", label="Bx (N=64)", ax=ax)
+cmpx = [1, 0, 0]
+ax = data2.showSounding(position=[x,y], cmp=cmpx, color="g", label="Bx (N=2)")
+data4.showSounding(position=[x,y], cmp=cmpx, color="orange", label="Bx (N=4)", ax=ax)
+data8.showSounding(position=[x,y], cmp=cmpx, color="k", label="Bx (N=8)", ax=ax)
+# data16.showSounding(position=[x,y], cmp=cmpx, color="lightblue", label="Bx (N=16)", ax=ax)
+data32.showSounding(position=[x,y], cmp=cmpx, color="blue", label="Bx (N=32)", ax=ax)
+# data64.showSounding(position=[x,y], cmp=cmpx, color="m", label="Bx (N=64)", ax=ax)
 
 # %% By
 
-ax = data2.showSounding(position=[x,y], cmp=[0, 1, 0], color="g", label="By (N=2)")
-data4.showSounding(position=[x,y], cmp=[0, 1, 0], color="orange", label="By (N=4)" , ax=ax)
-data8.showSounding(position=[x,y], cmp=[0, 1, 0], color="k", label="By (N=8)", ax=ax)
-# data16.showSounding(position=[x,y], cmp=[0, 1, 0], color="lightblue", label="By (N=16)", ax=ax)
-data32.showSounding(position=[x,y], cmp=[0, 1, 0], color="blue", label="By (N=32)", ax=ax)
-# data64.showSounding(position=[x,y], cmp=[0, 1, 0], color="m", label="By (N=64)", ax=ax)
+cmpy = [0, 1, 0]
+ax = data2.showSounding(position=[x,y], cmp=cmpy, color="g", label="By (N=2)")
+data4.showSounding(position=[x,y], cmp=cmpy, color="orange", label="By (N=4)" , ax=ax)
+data8.showSounding(position=[x,y], cmp=cmpy, color="k", label="By (N=8)", ax=ax)
+# data16.showSounding(position=[x,y], cmp=cmpy, color="lightblue", label="By (N=16)", ax=ax)
+data32.showSounding(position=[x,y], cmp=cmpy, color="blue", label="By (N=32)", ax=ax)
+# data64.showSounding(position=[x,y], cmp=cmpy, color="m", label="By (N=64)", ax=ax)
 
 # %% Bz
 
-ax = data2.showSounding(position=[x,y], cmp=[0, 0, 1], color="g", label="Bz (N=2)")
-data4.showSounding(position=[x,y], cmp=[0, 0, 1], color="orange", label="Bz (N=4)", ax=ax)
-data8.showSounding(position=[x,y], cmp=[0, 0, 1], color="k", label="Bz (N=8)", ax=ax)
-# data16.showSounding(position=[x,y], cmp=[0, 0, 1], color="lightblue", label="Bz (N=16)", ax=ax)
-data32.showSounding(position=[x,y], cmp=[0, 0, 1], color="blue", label="Bz (N=32)", ax=ax)
-# data64.showSounding(position=[x,y], cmp=[0, 0, 1], color="m", label="Bz (N=64)", ax=ax)
+cmpz = [0, 0, 1]
+ax = data2.showSounding(position=[x,y], cmp=cmpz, color="g", label="Bz (N=2)")
+data4.showSounding(position=[x,y], cmp=cmpz, color="orange", label="Bz (N=4)", ax=ax)
+data8.showSounding(position=[x,y], cmp=cmpz, color="k", label="Bz (N=8)", ax=ax)
+# data16.showSounding(position=[x,y], cmp=cmpz, color="lightblue", label="Bz (N=16)", ax=ax)
+data32.showSounding(position=[x,y], cmp=cmpz, color="blue", label="Bz (N=32)", ax=ax)
+# data64.showSounding(position=[x,y], cmp=cmpz, color="m", label="Bz (N=64)", ax=ax)
 
 # %% All
-ax = data4.showSounding(position=[x,y], cmp=[1, 0, 0], color="blue", label="Bx (N=4)")
-data32.showSounding(position=[x,y], cmp=[1, 0, 0], color="lightblue", label="Bx (N=32)", ax=ax)
-ax=data4.showSounding(position=[x,y], cmp=[0, 1, 0], color="red", label="By (N=4)", ax=ax)
-data32.showSounding(position=[x,y], cmp=[0, 1, 0], color="orange", label="By (N=32)", ax=ax)
-ax=data4.showSounding(position=[x,y], cmp=[0, 0, 1], color="g", label="Bz (N=4)", ax=ax)
-data32.showSounding(position=[x,y], cmp=[0, 0, 1], color="m", label="Bz (N=32)", ax=ax)
+ax = data4.showSounding(position=[x,y], cmp=cmpx, color="blue", label="Bx (N=4)")
+data32.showSounding(position=[x,y], cmp=cmpx, color="lightblue", label="Bx (N=32)", ax=ax)
+ax=data4.showSounding(position=[x,y], cmp=cmpy, color="red", label="By (N=4)", ax=ax)
+data32.showSounding(position=[x,y], cmp=cmpy, color="orange", label="By (N=32)", ax=ax)
+ax=data4.showSounding(position=[x,y], cmp=cmpz, color="g", label="Bz (N=4)", ax=ax)
+data32.showSounding(position=[x,y], cmp=cmpz, color="m", label="Bz (N=32)", ax=ax)

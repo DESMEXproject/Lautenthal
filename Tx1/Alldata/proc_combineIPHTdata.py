@@ -61,12 +61,12 @@ data32.showField("line",label='32 cycles')
 data32.addData(data4)
 # data32.addData(data8)
 
-data32.showData(nf=5, amphi=False)
-data32.showData(nf=8, amphi=False)
+data32.showData(nf=10, amphi=False)
+data32.showData(nf=14, amphi=False)
 
 # %% Filtering Frequencies
-data32.filter(fmin=12, fmax=1400)
-data32.filter(fInd=np.arange(0, len(data32.f), 2))  # every second
+data32.filter(fmin=12, fmax=550)
+data32.filter(fInd=np.arange(0, len(data32.f), 1))  # every second
 
 # %% Denoising
 data32.deactivateNoisyData(rErr=0.5)
