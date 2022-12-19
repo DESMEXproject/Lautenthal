@@ -6,6 +6,7 @@ Created on Wed Aug 17 09:46:05 2022
 @author: nazari
 """
 import numpy as np
+import matplotlib.pyplot as plt
 from saem import CSEMData
 # %% reading Data
 
@@ -50,14 +51,21 @@ ax=DATA[2].showSounding(cmp=cmpy, color="red", label="By (N=4)", ax=ax)
 DATA[3].showSounding(cmp=cmpy, color="orange", label="By (N=32)", ax=ax)
 ax=DATA[2].showSounding(cmp=cmpz, color="green", label="Bz (N=4)", ax=ax)
 DATA[3].showSounding(cmp=cmpz, color="lightgreen", label="Bz (N=32)", ax=ax);
-
+plt.savefig("Sounding.pdf", bbox_inches="tight")
 # %% Show Data before Denoising
+data=DATA[3]
 for f in range(0, len(data.f)):
-    data.showData(nf=f, amphi=False )
+    data.showData(nf=f, amphi=False, radius=50. )
 # %% Show Data after Denoising
 data.deactivateNoisyData(rErr=0.5)
 data.estimateError()  # 5%+1pV/A
 data.deactivateNoisyData(rErr=0.5)
 
 for f in range(0, len(data.f)):
-    data.showData(nf=f, amphi=False)
+    data.showData(nf=f, amphi=False, radius=50.)
+# %%
+data = DATA[3]
+data.radius = 50
+data.showData(nf=3, line=7)
+# data.showData(what="relerror")
+# data.generateDataPDF(what="relerror")

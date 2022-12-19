@@ -39,21 +39,21 @@ end=3000.
 data2.filter(minTxDist=start, maxTxDist=Sdist1)
 data2.filter(every=8)
 # data2.showData(amphi=False)
-data2.showField("line",label='2 cycles')
+data2.showField("line",label='2 cycles', radius=50.)
 
 data4.filter(minTxDist=Sdist1, maxTxDist=Sdist2)
 data4.filter(every=8)
 # data4.showData(amphi=False)
-data4.showField("line",label='4 cycles')
+data4.showField("line",label='4 cycles', radius=50.)
 
 data8.filter(minTxDist=Sdist1, maxTxDist=Sdist2)
 data8.filter(every=4)
 # data4.showData(amphi=False)
-data8.showField("line",label='8 cycles')
+data8.showField("line",label='8 cycles', radius=50.)
 
 data32.filter(minTxDist=Sdist2, maxTxDist=end)
 # data32.showData(amphi=True)
-data32.showField("line",label='32 cycles')
+data32.showField("line",label='32 cycles', radius=50.)
 
 # data32.addData(data1)
 # data32.addData(data2)
@@ -92,10 +92,11 @@ print(np.min(data32.ERR.imag))
 data32.setOrigin([589000., 5748000.])
 # %% Save Data
 data32.basename = "Tx1IPHT_32_4"
-data32.saveData(cmp='all')
-data32.showField("line",label='All')
-# %%
 dataname=data32.basename
-with np.load( dataname + "Bx.npz") as data:
+data32.saveData(cmp=[1,1,1])
+data32.showField("line",label='All', radius=50.)
+# %%
+
+with np.load( dataname + "BxByBz.npz") as data:
     f = data['freqs']
     print(f)
