@@ -64,8 +64,19 @@ data.deactivateNoisyData(rErr=0.5)
 for f in range(0, len(data.f)):
     data.showData(nf=f, amphi=False, radius=50.)
 # %%
-data = DATA[3]
 data.radius = 50
 data.showData(nf=3, line=7)
 # data.showData(what="relerror")
 # data.generateDataPDF(what="relerror")
+# %%
+
+# fig ,ax =data.showLineFreq(line=7.,nf=12)
+# data.showLineFreq(line=8.,nf=12,ax=ax)
+
+
+
+
+
+
+
+

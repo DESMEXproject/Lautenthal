@@ -25,7 +25,7 @@ survey.addPatch("../Tx1IPHT_32_4BxByBz.npz")
 
 for p in survey.patches:
     p.cmp = [1, 1, 1]  # components
-    p.filter(every=2)    
+    p.filter(every=1)    
 Cmp= "XYZ"  
     
 survey.patches[0].generateDataPDF(pdffile='New.pdf', what='relerror', log=False, alim=[-1,1])
