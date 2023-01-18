@@ -1,0 +1,2 @@
+Preferred current recording on ADU08e#019 fluxgate
+Merged files: Ncyc4 for data with up to 500 m distance to Tx, Ncyc8 between 500 and 1500 m, Ncyc16 after 1500 m distance
