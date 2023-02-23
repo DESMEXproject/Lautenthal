@@ -61,8 +61,8 @@ WWUfreq= [13,11,9,7,5,3]
 IPHT.showData(nf=IPHTfreq[5], amphi=False, radius=50.)
 WWU.showData(nf=WWUfreq[5], amphi=False, radius=50.)
 
-fig ,ax =IPHT.showLineFreq(line=IPHTline,nf=IPHTfreq[0])
-WWU.showLineFreq(line=WWUline,nf=WWUfreq[0],ax=ax)
+fig ,ax =IPHT.showData(line=IPHTline,nf=IPHTfreq[0])
+WWU.showData(line=WWUline,nf=WWUfreq[0],ax=ax)
 
 fig ,ax =IPHT.showLineFreq(line=IPHTline,nf=IPHTfreq[3])
 WWU.showLineFreq(line=WWUline,nf=WWUfreq[3],ax=ax)

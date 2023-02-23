@@ -6,7 +6,8 @@ Created on Mon Aug  8 17:42:39 2022
 
 import numpy as np
 from saem import CSEMData
-
+from custEM.meshgen import DEM
+import matplotlib.pyplot as plt
 
 # %% Reading Data
 txpos = np.genfromtxt("Tx2.pos").T[:, ::-1]
@@ -16,6 +17,22 @@ data2 = CSEMData(datafile="tfN2/*.mat", txPos=txpos)
 data4 = CSEMData(datafile="tfN4/*.mat", txPos=txpos)
 data8 = CSEMData(datafile="tfN8/*.mat", txPos=txpos)
 data32 = CSEMData(datafile="tfN32/*.mat", txPos=txpos)
+# %% Topography & Elevation
+dem = DEM("Inversion/Lautenthal.asc")
+# dem.show()
+ez = dem(data4.rx, data4.ry)
+
+plt.scatter(data4.rx, data4.ry, s=10, c=data4.rz-ez)
+plt.colorbar()
+xl = plt.gca().get_xlim()
+yl = plt.gca().get_ylim()
+
+fig, ax = plt.subplots()
+dem.show(ax=ax)
+plt.scatter(data4.rx, data4.ry, s=1, c=data4.rz-ez)
+plt.colorbar()
+ax.set_xlim(xl)
+ax.set_ylim(yl)
 # %% Combining the datas
 
 start=300.
@@ -96,7 +113,7 @@ dataname=data32.basename
 data32.saveData(cmp=[1,1,1])
 data32.showField("line",label='All', radius=50.)
 # %%
-
+print(data32)
 with np.load( dataname + "BxByBz.npz") as data:
     f = data['freqs']
     print(f)
